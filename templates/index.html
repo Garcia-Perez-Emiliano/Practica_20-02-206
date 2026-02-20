@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Estudiantes{% endblock %}
+
+{% block content %}
+
+<a href="" class="button is-success mb-3">
+    <i class="fa-solid fa-user-plus"></i>   
+        &nbsp;Agregar Estudiante
+</a>
+
+<br><br>
+
+<table class="table is-bordered is-striped is-fullwidth">
+    <thead>
+        <tr>
+            <th>ID Mercancia</th>
+            <th>Nombre</th>
+            <th>Color</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mercancia in mercancias %}
+        <tr>
+            <td>{{ mercancia.id_mercancia }}</td>
+            <td>{{ mercancia.nombre }}</td>
+            <td>{{ mercancia.color }}</td>
+            <td>{{ mercancia.precio }}</td>
+            <td>
+
+                <div class="buttons">
+
+                    <a href="" 
+                       class="button is-warning">
+                       <i class="fa-solid fa-arrow-rotate-right"></i>
+                       &nbsp;Actualizar
+                    </a>
+
+                    <a href="" 
+                       class="button is-danger">
+                       <i class="fa-regular fa-trash-can"></i>&nbsp;Eliminar
+                    </a>
+
+                </div>
+
+            </td> 
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" class="theme-light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/ee9903c79f.js" crossorigin="anonymous"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <section class="section">
+        <div class="container">            
+            <h1 class="title has-text-centered">Gestión de Estudiantes</h1>
+            <hr>
+            <div class="container is-max-desktop">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </section>
+</body>
+</html>
