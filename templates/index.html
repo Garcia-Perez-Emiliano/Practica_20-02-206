@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<a href="" class="button is-success mb-3">
+<a href="{{ url_for('create_mercancia') }}" class="button is-success mb-3">
     <i class="fa-solid fa-user-plus"></i>   
         &nbsp;Agregar Mercancias
 </a>
@@ -31,13 +31,13 @@
 
                 <div class="buttons">
 
-                    <a href="" 
+                    <a href="{{ url_for('update_mercancia', id_mercancia= mercancia.id_mercancia )}}" 
                        class="button is-warning">
                        <i class="fa-solid fa-arrow-rotate-right"></i>
                        &nbsp;Actualizar
                     </a>
 
-                    <a href="" 
+                    <a href="{{ url_for('delete_mercancia',id_mercancia= mercancia.id_mercancia )}}" 
                        class="button is-danger">
                        <i class="fa-regular fa-trash-can"></i>&nbsp;Eliminar
                     </a>

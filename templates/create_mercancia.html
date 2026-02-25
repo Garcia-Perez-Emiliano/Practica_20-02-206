@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Agregar Estudiante{% endblock %}
+
+{% block content %}
+
+<div class="columns is-centered">
+    <div class="column is-half">
+
+        <div class="card">
+            <div class="card-content">
+
+                <p class="title is-4">Agregar Mercancia</p>
+
+                <form action="{{ url_for('create_mercancia') }}" method="POST">
+
+                    <div class="field">
+                        <label class="label">ID_Mercancia:</label>
+                        <div class="control">
+                            <input class="input" type="text" id="id_mercancia" name="id_mercancia" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Nombre:</label>
+                        <div class="control">
+                            <input class="input" type="text" id="color" name="nombre" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Color:</label>
+                        <div class="control">
+                            <input class="input" type="text" id="color" name="color" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Precio:</label>
+                        <div class="control">
+                            <input class="input" type="text" id="precio" name="precio" required>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="submit" class="button is-primary">
+                                <i class="fa-regular fa-floppy-disk"></i>
+                                  &nbsp;Guardar
+                            </button>
+                        </div>
+                        <div class="control">
+                            <a href="{{ url_for('index') }}" class="button is-danger">
+                                Cancelar
+                            </a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

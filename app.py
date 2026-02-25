@@ -35,55 +35,54 @@ class Mercancia(db.Model):
 #Ruta raiz
 @app.route('/')
 def index():
-    #Trae todos los estudiantes
+    #Trae todas las mercacias
     mercancias = Mercancia.query.all()
-    #return estudiantes
+    #return mercacias
     return render_template('index.html', mercancias = mercancias)
-"""
 
-#Ruta /alumnos crear un nuevo alumno
-@app.route('/estudiantes/new', methods=['GET','POST'])
-def create_estudiante():
+
+#Ruta crear nueva mercacia
+@app.route('/new', methods=['GET','POST'])
+def create_mercancia():
     if request.method == 'POST':
-        #Agregar Estudiante
-        no_control = request.form['no_control']
+        #Agregar Mercancias
+        id_mercancia = request.form['id_mercancia']
         nombre = request.form['nombre']
-        ap_paterno = request.form['ap_paterno']
-        ap_materno = request.form['ap_materno']
-        semestre = request.form['semestre']
+        color = request.form['color']
+        precio = request.form['precio']
 
-        nvo_estudiante = Estudiante(no_control=no_control, nombre=nombre, ap_paterno=ap_paterno, ap_materno= ap_materno, semestre= semestre)
+        nvo_mercancia = Mercancia(id_mercancia=id_mercancia, nombre=nombre, color=color, precio= precio)
 
-        db.session.add(nvo_estudiante)
+        db.session.add(nvo_mercancia)
         db.session.commit()
 
         return redirect(url_for('index'))
     
     #Aqui sigue si es GET
-    return render_template('create_estudiante.html')
+    return render_template('create_mercancia.html')
 
-#Actualizar estudiante
-@app.route('/estudiantes/update/<string:no_control>', methods=['GET','POST'])
-def update_estudiante(no_control):
-    estudiante = Estudiante.query.get(no_control)
+
+#Actualizar mercancia
+@app.route('/update/<string:id_mercancia>', methods=['GET','POST'])
+def update_mercancia(id_mercancia):
+    mercancia = Mercancia.query.get(id_mercancia)
     if request.method == 'POST':
-        estudiante.nombre = request.form['nombre']
-        estudiante.ap_paterno = request.form['ap_paterno']
-        estudiante.ap_materno = request.form['ap_materno']
-        estudiante.semestre = request.form['semestre']
+        mercancia.nombre = request.form['nombre']
+        mercancia.color = request.form['color']
+        mercancia.precio = request.form['precio']
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('update_estudiante.html', estudiante=estudiante)
+    return render_template('update_mercancia.html', mercancia=mercancia)
 
-#Eliminar estudiante
-@app.route('/estudiantes/delete/<string:no_control>')
-def delete_estudiante(no_control):
-    estudiante = Estudiante.query.get(no_control)
-    if estudiante:
-        db.session.delete(estudiante)
+#Eliminar mercancia
+@app.route('/delete/<string:id_mercancia>')
+def delete_mercancia(id_mercancia):
+    mercancia = Mercancia.query.get(id_mercancia)
+    if mercancia:
+        db.session.delete(mercancia)
         db.session.commit()
     return redirect(url_for('index'))
-"""
+
 
 if __name__ == '__main__':
     app.run(debug=True)

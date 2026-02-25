@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Actualizar Estudiante{% endblock %}
+
+{% block content %}
+
+<div class="columns is-centered">
+    <div class="column is-half">
+
+        <div class="card">
+            <div class="card-content">
+
+                <p class="title is-4">Actualizar mercancia</p>
+
+                <form action="{{ url_for('update_mercancia', id_mercancia = mercancia.id_mercancia) }}" method="POST">
+
+                    <div class="field">
+                        <label class="label">Nombre:</label>
+                        <div class="control">
+                            <input 
+                                class="input" 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                value="{{ mercancia.nombre }}" 
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Color:</label>
+                        <div class="control">
+                            <input 
+                                class="input" 
+                                type="text" 
+                                id="color" 
+                                name="color" 
+                                value="{{ mercancia.color}}" 
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Precio:</label>
+                        <div class="control">
+                            <input 
+                                class="input" 
+                                type="text" 
+                                id="precio" 
+                                name="precio" 
+                                value="{{ mercancia.precio }}" 
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="submit" class="button is-primary">
+                                <i class="fa-regular fa-floppy-disk"></i>
+                                  &nbsp;
+                                Actualizar
+                            </button>
+                        </div>
+                        <div class="control">
+                            <a href="{{ url_for('index') }}" class="button is-danger is-light">
+                                Cancelar
+                            </a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
